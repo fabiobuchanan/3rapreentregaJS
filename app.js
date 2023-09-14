@@ -30,7 +30,7 @@ const productos = [
                 <img src="${product.img}" alt="${product.nombre}">
                 <h2>${product.nombre}</h2>
                 <p>Precio: $${product.precio}</p>
-                <button onclick="agregarAlCarrito(${product.id})">Agregar al Carrito</button>
+                <button class="add-to-cart-button" onclick="agregarAlCarrito(${product.id})">Agregar al Carrito</button>
             `;
             productContainer.appendChild(card);
         });
@@ -42,7 +42,6 @@ const productos = [
         if (product) {
             cart.push(product);
             actualizarCarrito();
-            guardarCarritoEnLocalStorage();
         }
     }
 
@@ -71,23 +70,7 @@ const productos = [
         if (productIndex !== -1) {
             cart.splice(productIndex, 1);
             actualizarCarrito();
-            guardarCarritoEnLocalStorage();
         }
     }
 
-    // Función para cargar los datos del carrito desde Local Storage
-    function cargarCarritoDesdeLocalStorage() {
-        const carritoGuardado = localStorage.getItem("carrito");
-        if (carritoGuardado) {
-            cart = JSON.parse(carritoGuardado);
-            actualizarCarrito();
-        }
-    }
-
-    // Función para guardar los datos del carrito en Local Storage
-    function guardarCarritoEnLocalStorage() {
-        localStorage.setItem("carrito", JSON.stringify(cart));
-    }
-
-    cargarCarritoDesdeLocalStorage(); // Cargamos el carrito al cargar la página
     mostrarProductosEnTarjetas();

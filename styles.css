@@ -76,3 +76,18 @@ header {
     margin-top: 10px;
     font-weight: bold;
 }
+
+/* Estilo para el botón "Agregar al Carrito" */
+.add-to-cart-button {
+    background-color: #007BFF;
+    color: #fff;
+    font-family: sans-serif;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-to-cart-button:hover {
+    background-color: #0056b3;
+}
